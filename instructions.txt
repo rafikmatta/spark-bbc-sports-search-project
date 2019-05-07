@@ -1,0 +1,17 @@
+Instructions:
+
+1. Attempt Jupyter Notebook (instructions on getting Livy working therein).
+2. If that doesn't work you can use the following steps:
+
+1. Load bbcsport folder to home directory of sandbox root user
+2. hadoop fs -put bbcsport/ to put on HDFS
+3. pyspark --master local[P], where P is number of available processors for your machine
+4. after Spark console has started, copy/paste line 1-9 of full_code_final.py
+5. In line 9, adjust the shuffle partitions to equal previous value of P
+6. copy/paste all three function out of full_code_final.py (build_index,load_index,query_call)
+7. Once they successfully load, copy/paste and run each of the subsequent blocks individually
+8. Build index (with choice of folder) lines 64-69
+9. Load index (with same choice of folder in step 8) lines 71-83
+10. Queries, lines 85-EOF, with line break inbetween.
+
+ 

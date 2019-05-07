@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(function () {
+            $('a#process_input').bind('click', function () {
+                $.post('/query', {
+                    query: $('input[name="query"]').val(),
+                    amount: $('input[name="amount"]').val(),
+                }, function (data) {
+                    $("#result").text(data.result);
+                });
+                return false;
+            });
+        });
+        $(function () {
+            $('a#stop_spark').bind('click', function () {
+                $.get('/stop', {}, function (data) {$("#result").text(data.result);});
+                return false;
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class='container'>
+    <h3>Welcome! Which is the best programming language of them all?</h3>
+    <form>
+        <input type=text size=5 name=query>
+        <input type=text size=5 name=amount>
+        <a href=# id=process_input>
+            <button class='btn btn-default'>Submit</button>
+        </a>
+        <a href=# id=stop_spark>
+            <button class='btn btn-default'>Stop Spark</button>
+        </a>
+    </form>
+    <p id=result></p>
+</div>
+</body>
+</html>
